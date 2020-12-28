@@ -64,8 +64,6 @@ var numericArray = ["0123456789"];
 var specialArray = ["!#$%&'()*+,-./:;<=>?@^_`{|}~"];
 
 }
-
-}
 // ***********************funtion ends here*****************************************
 
 // Add event listener to generate button
