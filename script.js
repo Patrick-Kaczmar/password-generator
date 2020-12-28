@@ -30,6 +30,7 @@ function generatePassword() {
         userInputLength = parseInt(userInputLength)
           if (userInputLength < 8 || userInputLength > 128 || !Number.isInteger(userInputLength)) {
             alert("Error! Please pick a number between 8 and 128");
+            // restarts function if conditions are not met
                generatePassword();
           }
 
@@ -37,13 +38,21 @@ function generatePassword() {
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
 // confirm if they want lowercase
+var LowerCase = confirm("Do you want lowercase characters?");
 // confirm if they want uppercase
+var upperCase = confirm("Do you want uppercase characters?");
 // confirm if they want numeric
+var numeric = confirm("Do you want numeric characters?");
 // confirm if they want special characters
+var special = confirm("Do you want special characters?");
 
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
 // we need to show an error if they gave us no characters to choose from
+if (LowerCase == false && upperCase == false && numeric == false && special == false) {
+  alert("Please choose at least one character type!");
+    generatePassword();
+}
 
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
