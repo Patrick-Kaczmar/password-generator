@@ -38,7 +38,7 @@ function generatePassword() {
 // WHEN prompted for character types to include in the password
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
 // confirm if they want lowercase
-var LowerCase = confirm("Do you want lowercase characters?");
+var lowerCase = confirm("Do you want lowercase characters?");
 // confirm if they want uppercase
 var upperCase = confirm("Do you want uppercase characters?");
 // confirm if they want numeric
@@ -49,15 +49,22 @@ var special = confirm("Do you want special characters?");
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
 // we need to show an error if they gave us no characters to choose from
-if (LowerCase == false && upperCase == false && numeric == false && special == false) {
+if (lowerCase == false && upperCase == false && numeric == false && special == false) {
   alert("Please choose at least one character type!");
+  // restart function if all confirms = false
     generatePassword();
 }
 
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
 // from all the characters chosen, choose one randomly and add it to our password x number of times
-// 
+var lowerCaseArray = ["abcdefghijklmnopqrstuvwxyz"];
+var upperCaseArray = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var numericArray = ["0123456789"];
+var specialArray = ["!#$%&'()*+,-./:;<=>?@^_`{|}~"];
+
+}
+
 }
 // ***********************funtion ends here*****************************************
 
