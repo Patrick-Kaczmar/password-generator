@@ -21,7 +21,6 @@ function writePassword() {
 function generatePassword() {
 // WHEN prompted for password criteria
 // THEN I select which criteria to include in the password
-    alert("Please choose the criteria for your password")
 // WHEN prompted for the length of the password
 // THEN I choose a length of at least 8 characters and no more than 128 characters
 // we have to ask the user for how many characters they want in the password
@@ -29,8 +28,10 @@ function generatePassword() {
 // otherwise, we tell the user to fix their input
     var userInputLength = prompt("Please choose the length of your password. (must be between 8 and 128 characters.)");
         userInputLength = parseInt(userInputLength)
-          if (userInputLength < 8 || userInputLength > 128 || !Number.isInteger(userInputLength))
+          if (userInputLength < 8 || userInputLength > 128 || !Number.isInteger(userInputLength)) {
             alert("Error! Please pick a number between 8 and 128");
+               generatePassword();
+          }
 
 
 // WHEN prompted for character types to include in the password
