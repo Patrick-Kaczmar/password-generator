@@ -1,5 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// list of arrays the user will select with confirm prompts
+var lowerCaseArray = ["abcdefghijklmnopqrstuvwxyz"];
+var upperCaseArray = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var numericArray = ["0123456789"];
+var specialArray = ["!#$%&'()*+,-./:;<=>?@^_`{|}~"];
+// empty array for holding criteria options that will be pushed into it from the user 
+var selectedCriteria = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -27,6 +34,7 @@ function generatePassword() {
 // we have to check to make sure it is between 8 and 128
 // otherwise, we tell the user to fix their input
     var userInputLength = prompt("Please choose the length of your password. (must be between 8 and 128 characters.)");
+      // turns the user input from a string to a number
         userInputLength = parseInt(userInputLength)
           if (userInputLength < 8 || userInputLength > 128 || !Number.isInteger(userInputLength)) {
             alert("Error! Please pick a number between 8 and 128");
@@ -39,12 +47,24 @@ function generatePassword() {
 // THEN I choose lowercase, uppercase, numeric, and/or special characters
 // confirm if they want lowercase
 var lowerCase = confirm("Do you want lowercase characters?");
+if (lowerCase == true){
+  selectedCriteria.push(lowerCaseArray)
+}
 // confirm if they want uppercase
 var upperCase = confirm("Do you want uppercase characters?");
+if (upperCase == true){
+  selectedCriteria.push(upperCaseArray)
+}
 // confirm if they want numeric
 var numeric = confirm("Do you want numeric characters?");
+if (numeric == true){
+  selectedCriteria.push(numericArray)
+}
 // confirm if they want special characters
 var special = confirm("Do you want special characters?");
+if (special == true){
+  selectedCriteria.push(specialArray)
+}
 
 // WHEN I answer each prompt
 // THEN my input should be validated and at least one character type should be selected
@@ -58,11 +78,12 @@ if (lowerCase == false && upperCase == false && numeric == false && special == f
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
 // from all the characters chosen, choose one randomly and add it to our password x number of times
-var lowerCaseArray = ["abcdefghijklmnopqrstuvwxyz"];
-var upperCaseArray = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var numericArray = ["0123456789"];
-var specialArray = ["!#$%&'()*+,-./:;<=>?@^_`{|}~"];
 
+
+for (i = 0; i < userInputLength; i++) {
+  if (0){}
+}
+console.log(i)
 }
 // ***********************funtion ends here*****************************************
 
