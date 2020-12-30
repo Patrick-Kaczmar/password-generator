@@ -48,22 +48,22 @@ function generatePassword() {
 // confirm if they want lowercase
 var lowerCase = confirm("Do you want lowercase characters?");
 if (lowerCase == true){
-  selectedCriteria.push(lowerCaseArray)
+  selectedCriteria = selectedCriteria.concat(lowerCaseArray)
 }
 // confirm if they want uppercase
 var upperCase = confirm("Do you want uppercase characters?");
 if (upperCase == true){
-  selectedCriteria.push(upperCaseArray)
+  selectedCriteria = selectedCriteria.concat(upperCaseArray)
 }
 // confirm if they want numeric
 var numeric = confirm("Do you want numeric characters?");
 if (numeric == true){
-  selectedCriteria.push(numericArray)
+  selectedCriteria = selectedCriteria.concat(numericArray)
 }
 // confirm if they want special characters
 var special = confirm("Do you want special characters?");
 if (special == true){
-  selectedCriteria.push(specialArray)
+  selectedCriteria = selectedCriteria.concat(specialArray)
 }
 
 // WHEN I answer each prompt
@@ -75,15 +75,17 @@ if (lowerCase == false && upperCase == false && numeric == false && special == f
     generatePassword();
 }
 
+
 // WHEN all prompts are answered
 // THEN a password is generated that matches the selected criteria
 // from all the characters chosen, choose one randomly and add it to our password x number of times
 
+console.log(selectedCriteria)
+// for (i = 0; i < userInputLength + 1 ; i++) {
+  
+// }
 
-for (i = 0; i < userInputLength; i++) {
-  if (0){}
-}
-console.log(i)
+
 }
 // ***********************funtion ends here*****************************************
 
