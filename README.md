@@ -6,4 +6,4 @@ Part of the code uses inspiration from the shuffle method created by Richard Dur
 
 ## Durstenfeld's shuffle algorithm - https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
 
-![website-preview](Password-generator.png)
+![website-preview](password-pic.png)
