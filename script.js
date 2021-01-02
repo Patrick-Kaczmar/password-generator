@@ -26,6 +26,8 @@ function generatePassword() {
     // ask the user a list of question prompts at least once 
   do {
     var passwordLength = prompt("Please choose between 8 and 128 characters for your password");
+    // changes the user input from a string to a integer
+      passwordLength = parseInt(passwordLength)
     console.log("user has chosen a length of " + passwordLength);
 
       // ask the user if they want lowercase characters
@@ -64,12 +66,12 @@ function generatePassword() {
       console.log("user does not want special characters");
     }
     // Alerts the user if they did not meet the criteria to generate a password
-    if (passwordLength < 8 || passwordLength > 128 || lowercase == false && uppercase == false && numeric == false && special == false) {
+    if (passwordLength < 8 || passwordLength > 128 ||  passwordLength !== parseInt(passwordLength) || lowercase == false && uppercase == false && numeric == false && special == false) {
       console.log("user did not meet criteria")
       alert("One or more criteria were entered incorrectly, please try again.")
     }
     // condition that states while its true, run this piece of code again 
-  } while (passwordLength < 8 || passwordLength > 128 || lowercase == false && uppercase == false && numeric == false && special == false);
+  } while (passwordLength < 8 || passwordLength > 128 || passwordLength !== parseInt(passwordLength) || lowercase == false && uppercase == false && numeric == false && special == false);
 
   // the loop that will pick a random character from each set of strings the user has choosen 
   for (i = 1; i <= passwordLength; i++) {
