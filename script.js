@@ -1,8 +1,8 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+
 // WHEN I click the button to generate a password
 // THEN I am presented with a series of prompts for password criteria
   var password = generatePassword();
@@ -10,12 +10,8 @@ function writePassword() {
 
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
   passwordText.value = password;
 }
-
-
-
 
 
 // ***********************funtion here*****************************************
@@ -24,7 +20,7 @@ function generatePassword() {
   console.log("button has been clicked to generate password");
   console.log("password is currently: " + userPassword);
 
-  // variable to hold password that will be randomized
+  // variable to hold password that will be generated and randomized
   var userPassword = ("");
 
     // ask the user a list of question prompts at least once 
@@ -67,15 +63,15 @@ function generatePassword() {
     else {
       console.log("user does not want special characters");
     }
-
+    // Alerts the user if they did not meet the criteria to generate a password
     if (passwordLength < 8 || passwordLength > 128 || lowercase == false && uppercase == false && numeric == false && special == false) {
       console.log("user did not meet criteria")
-      alert("Cant you do anything right?")
+      alert("One or more criteria were entered incorrectly, please try again.")
     }
-
+    // condition that states while its true, run this piece of code again 
   } while (passwordLength < 8 || passwordLength > 128 || lowercase == false && uppercase == false && numeric == false && special == false);
 
-  // the part where you randomize the password
+  // the loop that will pick a random character from each set of strings the user has choosen 
   for (i = 1; i <= passwordLength; i++) {
     // creating the variables holding the usable characters 
     var lowercaseChar = ("abcdefghijklmnopkrstuvwxyz");
@@ -83,24 +79,28 @@ function generatePassword() {
     var numericChar = ("0123456789");
     var specialChar = ("!#$%&'()*+-./:;<=>?@][^_`{|}~");
 
+    // if the user selected they want a lowercase character, pick a random character from the lowercaseChar string
     if (lowercase == true) {
       lowercaseChar = lowercaseChar.charAt(Math.floor(Math.random() * lowercaseChar.length))
       console.log("this is the random lowercase letter chosen: " + lowercaseChar);
       userPassword = userPassword + lowercaseChar;
     }
 
+    // if the user selected they want a uppercase character, pick a random character from the uppercaseChar string
     if (uppercase == true) {
       uppercaseChar = uppercaseChar.charAt(Math.floor(Math.random() * uppercaseChar.length))
       console.log("this is the random uppercase letter chosen: " + uppercaseChar);
       userPassword = userPassword + uppercaseChar;
     }
 
+    // if the user selected they want a numeric character, pick a random character from the numericChar string
     if (numeric == true) {
       numericChar = numericChar.charAt(Math.floor(Math.random() * numericChar.length))
       console.log("this is the random numeric character chosen: " + numericChar);
       userPassword = userPassword + numericChar;
     }
 
+    // if the user selected they want a special character, pick a random character from the specialChar string
     if (special == true) {
       specialChar = specialChar.charAt(Math.floor(Math.random() * specialChar.length))
       console.log("this is the random special character chosen: " + specialChar);
@@ -113,7 +113,7 @@ function generatePassword() {
 
   }
 
-  // Making sure the password is the correct length the user asked for by removing 
+  // Making sure the password is the correct length the user asked for by removing any extra characters
   userPassword = userPassword.slice(0, passwordLength);
   console.log("This is the password after using slice method: " + userPassword);
 
@@ -121,7 +121,7 @@ function generatePassword() {
   userPassword = userPassword.split("");
   console.log("this is the new array with all characters as substrings: " + userPassword);
 
-  //  Durstenfeld shuffle method is used here for a more unbiased random solution to the array
+  // Durstenfeld shuffle method is used here for a more unbiased random solution to the array
   for (i = userPassword.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
     temp = userPassword[i];
@@ -130,13 +130,15 @@ function generatePassword() {
   }
   console.log("userPassword after using the Durstenfeld shuffle method: " + userPassword);
 
+  // this turns the array back into a string 
   userPassword = userPassword.toString();
   console.log("Turns the password back into a string: " + userPassword)
 
+  // this removes all the commas created when turning the original string into an array 
   userPassword = userPassword.replace(/,/g, "");
   console.log("password after all the comma's have been removed " + userPassword)
 
-
+  // displays the password to the page 
   return userPassword
 }
 // ***********************funtion ends here*****************************************
