@@ -108,43 +108,38 @@ function generatePassword() {
     }
 
     
-    console.log("This is the current password " + userPassword)
-    console.log("this is the current password length " + userPassword.length)
+    console.log("This is the current password " + userPassword);
+    console.log("this is the current password length " + userPassword.length);
 
   }
 
-return userPassword
+  // Making sure the password is the correct length the user asked for by removing 
+  userPassword = userPassword.slice(0, passwordLength);
+  console.log("This is the password after using slice method: " + userPassword);
+
+  // Turning the string into an array with every character as its own string 
+  userPassword = userPassword.split("");
+  console.log("this is the new array with all characters as substrings: " + userPassword);
+
+  //  Durstenfeld shuffle method is used here for a more unbiased random solution to the array
+  for (i = userPassword.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = userPassword[i];
+    userPassword[i] = userPassword[j];
+    userPassword[j] = temp;
+  }
+  console.log("userPassword after using the Durstenfeld shuffle method: " + userPassword);
+
+  userPassword = userPassword.toString();
+  console.log("Turns the password back into a string: " + userPassword)
+
+  userPassword = userPassword.replace(/,/g, "");
+  console.log("password after all the comma's have been removed " + userPassword)
 
 
+  return userPassword
 }
 // ***********************funtion ends here*****************************************
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// we have to ask the user for how many characters they want in the password
-// we have to check to make sure it is between 8 and 128
-// otherwise, we tell the user to fix their input
-    
-
-
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// we need to show an error if they gave us no characters to choose from
-
-
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// from all the characters chosen, choose one randomly and add it to our password x number of times
