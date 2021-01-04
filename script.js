@@ -27,9 +27,18 @@ function generatePassword() {
   do {
     var passwordLength = prompt("Please choose between 8 and 128 characters for your password");
     // changes the user input from a string to a integer
-      passwordLength = parseInt(passwordLength)
+      passwordLength = parseInt(passwordLength);
     console.log("user has chosen a length of " + passwordLength);
 
+    if (passwordLength < 8 || passwordLength > 128 || passwordLength !== parseInt(passwordLength)) {
+      console.log("user input does not match criteria");
+      alert("You have entered a incorrect value, please try again");
+    }
+    // condition for repeating the prompt if user input is not within criteria 
+  } while (passwordLength < 8 || passwordLength > 128 || passwordLength !== parseInt(passwordLength));
+  
+
+  do {
       // ask the user if they want lowercase characters
     var lowercase = confirm("Do you want lowercase characters?");
     if (lowercase == true) {
@@ -54,7 +63,7 @@ function generatePassword() {
       console.log("user wants numeric characters");
     }
     else {
-      console.log("user does not want numeric characters")
+      console.log("user does not want numeric characters");
     }
 
     // ask the user if they want special characters
@@ -66,12 +75,12 @@ function generatePassword() {
       console.log("user does not want special characters");
     }
     // Alerts the user if they did not meet the criteria to generate a password
-    if (passwordLength < 8 || passwordLength > 128 ||  passwordLength !== parseInt(passwordLength) || lowercase == false && uppercase == false && numeric == false && special == false) {
-      console.log("user did not meet criteria")
-      alert("One or more criteria were entered incorrectly, please try again.")
+    if (lowercase == false && uppercase == false && numeric == false && special == false) {
+      console.log("user did not meet criteria");
+      alert("Please choose at least one character type for your password");
     }
     // condition that states while its true, run this piece of code again 
-  } while (passwordLength < 8 || passwordLength > 128 || passwordLength !== parseInt(passwordLength) || lowercase == false && uppercase == false && numeric == false && special == false);
+  } while (lowercase == false && uppercase == false && numeric == false && special == false);
 
   // the loop that will pick a random character from each set of strings the user has choosen 
   for (i = 1; i <= passwordLength; i++) {
@@ -83,28 +92,28 @@ function generatePassword() {
 
     // if the user selected they want a lowercase character, pick a random character from the lowercaseChar string
     if (lowercase == true) {
-      lowercaseChar = lowercaseChar.charAt(Math.floor(Math.random() * lowercaseChar.length))
+      lowercaseChar = lowercaseChar.charAt(Math.floor(Math.random() * lowercaseChar.length));
       console.log("this is the random lowercase letter chosen: " + lowercaseChar);
       userPassword = userPassword + lowercaseChar;
     }
 
     // if the user selected they want a uppercase character, pick a random character from the uppercaseChar string
     if (uppercase == true) {
-      uppercaseChar = uppercaseChar.charAt(Math.floor(Math.random() * uppercaseChar.length))
+      uppercaseChar = uppercaseChar.charAt(Math.floor(Math.random() * uppercaseChar.length));
       console.log("this is the random uppercase letter chosen: " + uppercaseChar);
       userPassword = userPassword + uppercaseChar;
     }
 
     // if the user selected they want a numeric character, pick a random character from the numericChar string
     if (numeric == true) {
-      numericChar = numericChar.charAt(Math.floor(Math.random() * numericChar.length))
+      numericChar = numericChar.charAt(Math.floor(Math.random() * numericChar.length));
       console.log("this is the random numeric character chosen: " + numericChar);
       userPassword = userPassword + numericChar;
     }
 
     // if the user selected they want a special character, pick a random character from the specialChar string
     if (special == true) {
-      specialChar = specialChar.charAt(Math.floor(Math.random() * specialChar.length))
+      specialChar = specialChar.charAt(Math.floor(Math.random() * specialChar.length));
       console.log("this is the random special character chosen: " + specialChar);
       userPassword = userPassword + specialChar;
     }
@@ -134,14 +143,14 @@ function generatePassword() {
 
   // this turns the array back into a string 
   userPassword = userPassword.toString();
-  console.log("Turns the password back into a string: " + userPassword)
+  console.log("Turns the password back into a string: " + userPassword);
 
   // this removes all the commas created when turning the original string into an array 
   userPassword = userPassword.replace(/,/g, "");
-  console.log("password after all the comma's have been removed " + userPassword)
+  console.log("password after all the comma's have been removed " + userPassword);
 
   // displays the password to the page 
-  return userPassword
+  return userPassword;
 }
 // ***********************funtion ends here*****************************************
 
